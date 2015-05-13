@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>reveal.js - The HTML Presentation Framework</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/moon-nme.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div id="credit">
+		</div>
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section id="first" data-background="venus.png">
+				<!-- Awesome -->
+				<h1 style="color: #FF2052">Color Selection</h1>
+				<!-- Super Happy -->
+				<h2 style="color: #FFFF21">for Interactive Maps</h2>
+				<!-- Fun in the Sun -->
+				<p>Presented by Alex Johnson</p>
+				<p>Lunar Reconnaissance Orbiter Camera SOC</p>
+				<p>Arizona State University</p>
+				<p>ajohnson@ser.asu.edu</p>
+
+				</section>
+
+				<section>
+				<h1>The Problem</h1>
+				<p>(Part one)</p>
+				</section>
+
+				<section>
+				<img src="GreenSquares.png">
+				</section>
+
+				<section>
+				<img src="OrangeSquares.png">
+				</section>
+
+				<section>
+				<h2>Okay, we need a contrasting color algorithm!</h2>
+				</section>
+
+				<section>
+					<pre>
+					<br>arrLength = ARGV.first.to_i</p>
+					<br>rgb = Array.new(arrLength) { Array.new(3, 255) }</p>
+					<br>max_rgb = 255</p>
+					<br>interval1 = max_rgb</p>
+					<br>interval2 = max_rgb</p>
+					<br>i = 0</p>
+					<br>j = 0</p>
+					<br>k = 0</p>
+					<br>m = 0</p>
+					<br></p>
+					<br>while j < arrLength - 2 </p>
+					<br>  i = 0</p>
+					<br>  while i < 3</p>
+					<br>    rgb[j][i] -= interval1</p>
+					<br>    i += 1</p>
+					<br>    j += 1</p>
+					<br>  end</p>
+					<br>  i = 0</p>
+					<br>  while k < 3</p>
+					<br>    rgb[j][k] -= interval1</p>
+					<br>      k += 1</p>
+					<br>    if k < 3 </p>
+					<br>      rgb[j][k] -= interval1</p>
+					<br>    else</p>
+					<br>      rgb[j][0] -= interval1</p>
+					<br>    end</p>
+					<br>    j += 1</p>
+					<br>  end</p>
+					<br>  while k < 3</p>
+					<br>    rgb[j][k] -= interval1</p>
+					<br>      k += 1</p>
+					<br>    if k < 3 </p>
+					<br>      rgb[j][k] -= interval1</p>
+					<br>    else</p>
+					<br>      rgb[j][0] -= interval1</p>
+					<br>    end</p>
+					<br>    j += 1</p>
+					<br>    while m < 3</p>
+					<br>  end</p>
+					<br>  k = 0</p>
+					<br>  interval1 = (interval1 / 2.0).round</p>
+					<br>end</p>
+					<br></p>
+					<br>p rgb</p>
+					<br>#colors = rgb.map {|a| a.map {|c| "%x" % c}.join('')}</p>
+					<br>colors = rgb.map {|a| "%02X%02X%02X" % a}</p>
+					<br>
+					</pre>
+				</section>
+
+				<section>
+				<h1>The Problem</h1>
+				<p>(Part two)</p>
+				</section>
+
+				<section>
+				<img src="MarsGreen.png">
+				</section>
+
+				<section>
+				<img src="MarsOrange.png">
+				</section>
+
+
+				<section>
+					<h2>Oh yeah, optics.</h2>
+				</section>
+				<section>
+					<p>Turns out, color display is not the same as color perception.</p>
+					<p>Human perception of color includes the way our eyes view, and <em>color</em>, what they see (wokka wokka).</p>
+				</section>
+				<section data-background="wpid-Question-Mark-Wallpaper-11.jpg" data-credit="Question Mark Wallpaper 11 from computerwallpapers.org">
+				<h1>Questions?</h1>
+				</section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+				viewDistance: 2,
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+				backgroundTransition: 'fade',
+
+				// Optional reveal.js plugins
+				dependencies: [
+				{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+				{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+				{ src: 'plugin/zoom-js/zoom.js', async: true },
+				{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+			function updateCredit() {
+				var credit = Reveal.getCurrentSlide().getAttribute('data-credit');
+				if (credit != null) {
+					document.getElementById("credit").innerHTML = "Background Image Credit: " + credit;
+					document.getElementById("credit").style.display = 'block';
+					} else {
+					document.getElementById("credit").style.display = 'none';
+				}
+			}
+
+			Reveal.addEventListener('slidechanged', function(event) {
+				updateCredit();
+			} );
+
+			updateCredit();
+		</script>
+	</body>
+
