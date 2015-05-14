@@ -4,7 +4,7 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title>reveal.js - The HTML Presentation Framework</title>
+		<title>Alex Johnson - Color Talk</title>
 
 		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
 		<meta name="author" content="Hakim El Hattab">
@@ -42,7 +42,7 @@
 
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
-				<section id="first" data-background="venus.png">
+				<section id="first" data-background="">
 				<!-- Awesome -->
 				<h1 style="color: #FF2052">Color Selection</h1>
 				<!-- Super Happy -->
@@ -70,58 +70,66 @@
 
 				<section>
 				<h2>Okay, we need a contrasting color algorithm!</h2>
+				<p>I wrote an algorithm in Ruby that generates the <i>n</i> most unique (quantitatively different from each previous member of the set) colors in RGB space. The assumption, and I know this sounds crazy, was that the most distinct colors are the most distinct.</p>
 				</section>
 
 				<section>
+					<p>
 					<pre>
-					<br>arrLength = ARGV.first.to_i</p>
-					<br>rgb = Array.new(arrLength) { Array.new(3, 255) }</p>
-					<br>max_rgb = 255</p>
-					<br>interval1 = max_rgb</p>
-					<br>interval2 = max_rgb</p>
-					<br>i = 0</p>
-					<br>j = 0</p>
-					<br>k = 0</p>
-					<br>m = 0</p>
-					<br></p>
-					<br>while j < arrLength - 2 </p>
-					<br>  i = 0</p>
-					<br>  while i < 3</p>
-					<br>    rgb[j][i] -= interval1</p>
-					<br>    i += 1</p>
-					<br>    j += 1</p>
-					<br>  end</p>
-					<br>  i = 0</p>
-					<br>  while k < 3</p>
-					<br>    rgb[j][k] -= interval1</p>
-					<br>      k += 1</p>
-					<br>    if k < 3 </p>
-					<br>      rgb[j][k] -= interval1</p>
-					<br>    else</p>
-					<br>      rgb[j][0] -= interval1</p>
-					<br>    end</p>
-					<br>    j += 1</p>
-					<br>  end</p>
-					<br>  while k < 3</p>
-					<br>    rgb[j][k] -= interval1</p>
-					<br>      k += 1</p>
-					<br>    if k < 3 </p>
-					<br>      rgb[j][k] -= interval1</p>
-					<br>    else</p>
-					<br>      rgb[j][0] -= interval1</p>
-					<br>    end</p>
-					<br>    j += 1</p>
-					<br>    while m < 3</p>
-					<br>  end</p>
-					<br>  k = 0</p>
-					<br>  interval1 = (interval1 / 2.0).round</p>
-					<br>end</p>
-					<br></p>
-					<br>p rgb</p>
-					<br>#colors = rgb.map {|a| a.map {|c| "%x" % c}.join('')}</p>
-					<br>colors = rgb.map {|a| "%02X%02X%02X" % a}</p>
-					<br>
+					<code>
+					arrLength = ARGV.first.to_i
+					rgb = Array.new(arrLength) { Array.new(3, 255) }
+					max_rgb = 255
+					interval1 = max_rgb
+					interval2 = max_rgb
+					i = 0
+					j = 0
+					k = 0
+					m = 0
+					
+					while j &lt; arrLength - 2 
+					  i = 0
+					  while i &lt; 3
+					    rgb[j][i] -= interval1
+					    i += 1
+					    j += 1
+					  end
+					  i = 0
+					  while k &lt; 3
+					    rgb[j][k] -= interval1
+					      k += 1
+					    if k &lt; 3 
+					      rgb[j][k] -= interval1
+					    else
+					      rgb[j][0] -= interval1
+					    end
+					    j += 1
+					  end
+					  while k &lt; 3
+					    rgb[j][k] -= interval1
+					      k += 1
+					    if k &lt; 3 
+					      rgb[j][k] -= interval1
+					    else
+					      rgb[j][0] -= interval1
+					    end
+					    j += 1
+					    while m &lt; 3
+					  end
+					  k = 0
+					  interval1 = (interval1 / 2.0).round
+					end
+					
+					p rgb
+					colors = rgb.map {|a| "%02X%02X%02X" % a}
+					
+					</code>
 					</pre>
+				</p>
+				</section>
+
+				<section>
+				<img src="LunaservAlgorithm.png">
 				</section>
 
 				<section>
@@ -137,15 +145,70 @@
 				<img src="MarsOrange.png">
 				</section>
 
-
 				<section>
 					<h2>Oh yeah, optics.</h2>
 				</section>
 				<section>
 					<p>Turns out, color display is not the same as color perception.</p>
-					<p>Human perception of color includes the way our eyes view, and <em>color</em>, what they see (wokka wokka).</p>
+					<p>Human perception of color includes the way our eyes <em>color</em> what they see (wokka wokka).</p>
 				</section>
-				<section data-background="wpid-Question-Mark-Wallpaper-11.jpg" data-credit="Question Mark Wallpaper 11 from computerwallpapers.org">
+
+				<section>
+					<h2>REINVENT ALL THE WHEELS!!1!</h2>
+					<p>Oh wait, that's what we're <u>not</u> supposed to do...</p>	
+				</section>
+
+				<section>
+					<p>So we searched for previous research about selecting a set of colors with maximum contrast against one another, and also any other color they might happen to be overlayed on.</p>
+					<p>We found surprisingly little, and nothing recent.</p>
+					<p>There was, however, one source that had just what we were looking for:</p>
+				</section>
+			
+				<section>
+				<img src="KellysColors.png">
+				</section>
+
+				<section>
+					<p>"The order of colours in Kelly's list was planned so that there would be maximum contrast between colours in a set if the required number of colours were always selected in order from the top. 
+					Kelly took care of the needs of people with defective color vision. The first nine colours would be maximally different for such people as well as for people with normal vision. These nine colours are also readily distinguishable by colour name."</p>
+					<p>"The ISCC set up Project Committee 54 with the intention of bringing Kelly's work up to date. However, the committee decided that, for what they were trying to do, they could not improve on Kelly's set of colours."</p>
+					<p style="font-size:10px; text-transform:italic">quote: P. Green-Armytage. Provided by Alexey Popkov via http://graphicdesign.stackexchange.com/questions/3682/where-can-i-find-a-large-palette-set-of-contrasting-colors-for-coloring-many-d</p>
+				</section>
+			
+				<section>
+				<img src="LunaservAlgorithm.png">
+				</section>
+
+				<section>
+				<img src="LunaservKelly.png">
+				</section>
+
+				<section>
+				<img src="GreenSquares.png">
+				</section>
+
+				<section>
+				<img src="KellyGreenSquares.png">
+				</section>
+
+				<section>
+				<img src="MoonColorshadeNonKelly.png">
+				</section>
+
+				<section>
+				<img src="MoonColorshadeKelly.png">
+				</section>
+
+				<section>
+				<h1>Possible Areas of Future Research</h1>
+				<ul>
+					<li>What if more than 22 colors are needed?</li>
+					<li>Alter/Generate Kelly's colors based on inputs (for example, common colors in base map.</li>
+					<li>Pattern recognition's effects on contrast/visibility</li>
+				</ul>
+				</section>
+
+				<section data-background="">
 				<h1>Questions?</h1>
 				</section>
 			</div>
