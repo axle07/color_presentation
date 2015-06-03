@@ -32,6 +32,11 @@
 		<!--[if lt IE 9]>
 		<script src="lib/js/html5shiv.js"></script>
 		<![endif]-->
+		<style type="text/css">
+			[data-background].present {
+				background: none repeat scroll rgba(0,0,0,0.0) !important;
+			}
+		</style>
 	</head>
 
 	<body>
@@ -60,12 +65,10 @@
 				<p>(Part one)</p>
 				</section>
 
-				<section>
-				<img src="GreenSquares.png">
+				<section data-background="GreenSquares.png">
 				</section>
 
-				<section>
-				<img src="OrangeSquares.png">
+				<section data-background="OrangeSquares.png">
 				</section>
 
 				<section>
@@ -74,62 +77,27 @@
 				</section>
 
 				<section>
-					<p>
+				<h1>In Ruby:</h1>
 					<pre>
-					<code>
-					arrLength = ARGV.first.to_i
-					rgb = Array.new(arrLength) { Array.new(3, 255) }
-					max_rgb = 255
-					interval1 = max_rgb
-					interval2 = max_rgb
-					i = 0
-					j = 0
-					k = 0
-					m = 0
-					
-					while j &lt; arrLength - 2 
-					  i = 0
-					  while i &lt; 3
-					    rgb[j][i] -= interval1
-					    i += 1
-					    j += 1
-					  end
-					  i = 0
-					  while k &lt; 3
-					    rgb[j][k] -= interval1
-					      k += 1
-					    if k &lt; 3 
-					      rgb[j][k] -= interval1
-					    else
-					      rgb[j][0] -= interval1
-					    end
-					    j += 1
-					  end
-					  while k &lt; 3
-					    rgb[j][k] -= interval1
-					      k += 1
-					    if k &lt; 3 
-					      rgb[j][k] -= interval1
-					    else
-					      rgb[j][0] -= interval1
-					    end
-					    j += 1
-					    while m &lt; 3
-					  end
-					  k = 0
-					  interval1 = (interval1 / 2.0).round
-					end
-					
-					p rgb
-					colors = rgb.map {|a| "%02X%02X%02X" % a}
-					
+					<code style="font-size: 17px; line-height: 20px">
+	$colors = Array.new
+	intervals = [255, 0, 128, 64, 192, 32, 96, 160, 224]
+	
+	def generate(n)
+	  a = [n, 255, 0]
+	  $colors &lt;&lt; a.permutation.to_a
+	end
+	
+	intervals.map { |i| generate(i) }
+	$colors.flatten!(1).uniq!
 					</code>
 					</pre>
-				</p>
+					<p>
+					(or 84 lines of C)
+					</p>
 				</section>
 
-				<section>
-				<img src="LunaservAlgorithm.png">
+				<section data-background="LunaservAlgorithm.png">
 				</section>
 
 				<section>
@@ -137,12 +105,10 @@
 				<p>(Part two)</p>
 				</section>
 
-				<section>
-				<img src="MarsGreen.png">
+				<section data-background="MarsGreen.png">
 				</section>
 
-				<section>
-				<img src="MarsOrange.png">
+				<section data-background="MarsOrange.png">
 				</section>
 
 				<section>
@@ -175,28 +141,22 @@
 					<p style="font-size:10px; text-transform:italic">quote: P. Green-Armytage. Provided by Alexey Popkov via http://graphicdesign.stackexchange.com/questions/3682/where-can-i-find-a-large-palette-set-of-contrasting-colors-for-coloring-many-d</p>
 				</section>
 			
-				<section>
-				<img src="LunaservAlgorithm.png">
+				<section data-background="LunaservAlgorithm.png">
 				</section>
 
-				<section>
-				<img src="LunaservKelly.png">
+				<section data-background="LunaservKelly.png">
 				</section>
 
-				<section>
-				<img src="GreenSquares.png">
+				<section data-background="GreenSquares.png">
 				</section>
 
-				<section>
-				<img src="KellyGreenSquares.png">
+				<section data-background="KellyGreenSquares.png">
 				</section>
 
-				<section>
-				<img src="MoonColorshadeNonKelly.png">
+				<section data-background="MoonColorshadeNonKelly.png">
 				</section>
 
-				<section>
-				<img src="MoonColorshadeKelly.png">
+				<section data-background="MoonColorshadeKelly.png">
 				</section>
 
 				<section>
@@ -211,8 +171,18 @@
 				</ul>
 				</section>
 
-				<section data-background="">
+				<section>
 				<h1>Questions?</h1>
+				</section>
+
+				<section>
+				<h1>Appendix</h1>
+				</section>
+
+				<section data-background="color_alg1.png">
+				</section>
+
+				<section data-background="color_alg2.png">
 				</section>
 			</div>
 		</div>
