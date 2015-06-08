@@ -36,6 +36,9 @@
 			[data-background].present {
 				background: none repeat scroll rgba(0,0,0,0.0) !important;
 			}
+			[data-background-hash*="color_alg"] {
+				background-position: center top;
+			}
 		</style>
 	</head>
 
@@ -63,6 +66,15 @@
 				<section>
 				<h1>The Problem</h1>
 				<p>(Part one)</p>
+				</section>
+
+				<section>
+				<ul>
+					<li>Layers overlaid on a basemap need to be visually distinguishable from the basemap</li>
+					<li>Layers can be many, and can overlap, so they need to be visually distinguishable from one another.</li>
+					<li>Layers can be many, many, so there needs to be many, many distinct colors</li>
+					<li>Ad-hoc color selection does not scale.</li>
+				</ul>
 				</section>
 
 				<section data-background="GreenSquares.png">
@@ -97,7 +109,7 @@
 					</p>
 				</section>
 
-				<section data-background="LunaservAlgorithm.png">
+				<section data-background="alg_global.png">
 				</section>
 
 				<section>
@@ -137,14 +149,21 @@
 				<section>
 					<p>"The order of colours in Kelly's list was planned so that there would be maximum contrast between colours in a set if the required number of colours were always selected in order from the top. 
 					Kelly took care of the needs of people with defective color vision. The first nine colours would be maximally different for such people as well as for people with normal vision. These nine colours are also readily distinguishable by colour name."</p>
-					<p>"The ISCC set up Project Committee 54 with the intention of bringing Kelly's work up to date. However, the committee decided that, for what they were trying to do, they could not improve on Kelly's set of colours."</p>
+				</section>
+				<section>
+				<p>Kelly's work was published in 1965.  Surely, with the popularization and increase in performance of the computer, we could do better, right?</p>
+				<p></p>
+				<p>Nope.</p>
+				</section>
+				<section>
+					<p>"The ISCC set up Project Committee 54 [in 1985] with the intention of bringing Kelly's work up to date. However, the committee decided that, for what they were trying to do, they could not improve on Kelly's set of colours."</p>
 					<p style="font-size:10px; text-transform:italic">quote: P. Green-Armytage. Provided by Alexey Popkov via http://graphicdesign.stackexchange.com/questions/3682/where-can-i-find-a-large-palette-set-of-contrasting-colors-for-coloring-many-d</p>
 				</section>
 			
-				<section data-background="LunaservAlgorithm.png">
+				<section data-background="alg_global.png">
 				</section>
 
-				<section data-background="LunaservKelly.png">
+				<section data-background="kelly_global.png">
 				</section>
 
 				<section data-background="GreenSquares.png">
@@ -153,10 +172,17 @@
 				<section data-background="KellyGreenSquares.png">
 				</section>
 
+				<section>
+				<h1>Worst Case Scenario</h1>
+				</section>
+
 				<section data-background="MoonColorshadeNonKelly.png">
 				</section>
 
 				<section data-background="MoonColorshadeKelly.png">
+				</section>
+
+				<section data-background="kelly_dtm.png">
 				</section>
 
 				<section>
@@ -180,7 +206,11 @@
 				<h1>Appendix</h1>
 				</section>
 
-				<section data-background="color_alg1.png">
+				<section>
+				<img src="colorbrewer.png">
+				</section>
+
+				<section data-background="color_alg1.png" style="background-position: center top">
 				</section>
 
 				<section data-background="color_alg2.png">
